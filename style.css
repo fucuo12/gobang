@@ -1,0 +1,149 @@
+/* 基础样式 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Microsoft YaHei", sans-serif;
+  background-color: #f5deb3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: #333;
+}
+
+.container {
+  text-align: center;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  width: 95%;
+  max-width: 600px;
+  position: relative;
+}
+
+h1 {
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+.choice {
+  margin-bottom: 20px;
+  font-size: 1.1em;
+}
+
+#color-choice {
+  padding: 8px;
+  font-size: 1em;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#start-game, .buttons button {
+  padding: 12px 24px;
+  font-size: 1em;
+  background-color: #4a7c59;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#start-game:hover, .buttons button:hover {
+  background-color: #3a5f43;
+}
+
+#status {
+  margin: 15px 0;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #555;
+}
+
+/* 棋盘样式 */
+#game-board {
+  display: inline-grid;
+  grid-template-columns: repeat(15, 1fr);
+  grid-template-rows: repeat(15, 1fr);
+  width: 100%;
+  max-width: 600px;
+  aspect-ratio: 1/1;
+  border: 2px solid #333;
+  background-color: #d2b48c;
+  margin: 10px auto;
+  touch-action: manipulation;
+  position: relative;
+}
+
+.cell {
+  width: 100%;
+  height: 100%;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  min-width: 0;
+  position: relative;
+}
+
+/* 移除多余边框 */
+.cell:nth-child(15n) { border-right: none; }
+.cell:nth-last-child(-n + 15) { border-bottom: none; }
+
+/* 棋子样式 */
+.piece {
+  width: 55%;
+  height: 55%;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.black {
+  background-color: #000;
+  box-shadow: inset 2px 2px 5px rgba(255, 255, 255, 0.3), 0 0 8px rgba(0, 0, 0, 0.5);
+}
+
+.white {
+  background-color: #fff;
+  border: 1px solid #bbb;
+  box-shadow: inset -2px -2px 5px rgba(0, 0, 0, 0.2), 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+/* 天元点修正 */
+.cell:nth-child(113)::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background-color: black;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+/* 响应式适配 */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.5em;
+  }
+  
+  .choice {
+    font-size: 1.1em;
+  }
+  
+  #start-game, .buttons button {
+    padding: 10px 20px;
+    font-size: 1em;
+  }
+}

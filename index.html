@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <title>五子棋 - 人机对战</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>五子棋对弈</h1>
+
+    <!-- 颜色选择 -->
+    <div class="choice">
+      <label for="color-choice">请选择你的棋子：</label>
+      <select id="color-choice">
+        <option value="black">黑子（先手）</option>
+        <option value="white">白子（后手）</option>
+      </select>
+      <button id="start-game">开始游戏</button>
+    </div>
+
+    <!-- 棋盘 -->
+    <div id="game-board"></div>
+
+    <!-- 状态提示 -->
+    <p id="status">选择颜色后点击“开始游戏”</p>
+
+    <!-- 控制按钮 -->
+    <div class="buttons">
+      <button id="reset">重新开始</button>
+      <button id="restart">换边重来</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
